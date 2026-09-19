@@ -1,0 +1,269 @@
+/* ==========================================================
+   Palette (three colours only)
+   --ink  : deep teal, text and dark surfaces
+   --mist : pale green-grey, page background
+   --gold : marigold, accent and hover states
+   ========================================================== */
+:root {
+  --ink: #0b3c49;
+  --mist: #eef3f1;
+  --gold: #f2a900;
+
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino,
+    "Book Antiqua", Georgia, serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+body {
+  margin: 0;
+  background-color: var(--mist);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Accessibility ---------- */
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.hero :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--gold);
+}
+
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background-color: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background-color: var(--ink);
+  color: var(--mist);
+  padding: 3.5rem 0 2.5rem;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 12vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
+}
+
+.hero-tagline {
+  margin-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  max-width: 30rem;
+  border-bottom: 4px solid var(--gold);
+  font-size: 1.125rem;
+  color: var(--mist);
+}
+
+/* ---------- Navigation ---------- */
+.site-nav {
+  margin-top: 1.75rem;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--mist);
+  color: var(--mist);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.site-nav a:hover {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 3rem 0 0.5rem;
+}
+
+.section:last-child {
+  padding-bottom: 3.5rem;
+}
+
+.section-title {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 4px solid var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  line-height: 1.2;
+}
+
+/* ---------- About ---------- */
+.about-text {
+  max-width: 38rem;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+/* ---------- Skills ---------- */
+.skill-list {
+  max-width: 38rem;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--ink);
+}
+
+.skill-list li {
+  padding: 0.9rem 0.75rem;
+  border-bottom: 2px solid var(--ink);
+  font-size: 1.125rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.skill-list li:hover {
+  background-color: var(--gold);
+  padding-left: 1.5rem;
+}
+
+/* ---------- Projects ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border: 2px solid var(--ink);
+  background-color: var(--mist);
+  color: var(--ink);
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card-title {
+  margin-bottom: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.25;
+  transition: color 0.25s ease;
+}
+
+.card-text {
+  max-width: 32rem;
+}
+
+.card:hover {
+  background-color: var(--ink);
+  border-color: var(--gold);
+  color: var(--mist);
+}
+
+.card:hover .card-title {
+  color: var(--gold);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 1.5rem 0;
+  background-color: var(--ink);
+  color: var(--mist);
+  font-size: 0.95rem;
+}
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 640px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.25rem;
+  }
+
+  .section {
+    padding-top: 4rem;
+  }
+
+  .section-title {
+    font-size: 2.1rem;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
